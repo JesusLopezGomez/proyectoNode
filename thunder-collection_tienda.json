@@ -1,0 +1,765 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "tienda",
+    "dateExported": "2023-11-17T11:22:00.483Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "8d3065d5-d3cc-45d6-8266-356c0043d591",
+            "name": "impresora3d",
+            "containerId": "",
+            "created": "2023-11-17T09:57:37.452Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "1a35f81b-031d-44d7-87b2-6c7cec986b41",
+            "name": "repuesto",
+            "containerId": "",
+            "created": "2023-11-17T09:57:47.347Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "40ddbdbf-e8a8-43d3-8871-111b13ce6843",
+            "name": "filamento",
+            "containerId": "",
+            "created": "2023-11-17T09:57:54.235Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "9a45f698-e2fe-4d50-99a3-799c93616307",
+            "name": "ok",
+            "containerId": "8d3065d5-d3cc-45d6-8266-356c0043d591",
+            "created": "2023-11-17T09:58:12.951Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "ko",
+            "containerId": "8d3065d5-d3cc-45d6-8266-356c0043d591",
+            "created": "2023-11-17T09:58:17.491Z",
+            "sortNum": 50000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "05319b56-eb94-4a9e-92eb-d89c6b510e06",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "9a45f698-e2fe-4d50-99a3-799c93616307",
+            "name": "getImpresoras3d",
+            "url": "http://localhost:3000/impresora3d/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-11-17T10:39:15.095Z",
+            "modified": "2023-11-17T10:50:58.367Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "4d9a60bb-b2a0-46bc-b0e0-14a54a9fc790",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "9a45f698-e2fe-4d50-99a3-799c93616307",
+            "name": "addImpresora3d",
+            "url": "http://localhost:3000/impresora3d/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-11-17T10:40:27.819Z",
+            "modified": "2023-11-17T10:50:56.239Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "201"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "d8d6aa62-e27b-4b90-8cb5-a7d0b34579bb",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "getImpresoras3dNoExiste",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-11-17T10:41:01.849Z",
+            "modified": "2023-11-17T10:50:09.685Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "cfa122a2-47ec-4e21-955a-7ba9ebf79122",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "9a45f698-e2fe-4d50-99a3-799c93616307",
+            "name": "deleteImpresora3d",
+            "url": "http://localhost:3000/impresora3d/idExistente",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-11-17T10:45:15.604Z",
+            "modified": "2023-11-17T10:47:54.388Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "f097de51-049a-41c6-bdc5-a089695703ee",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dMarcaNoValida",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 67500,
+            "created": "2023-11-17T11:16:29.067Z",
+            "modified": "2023-11-17T11:16:55.008Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": 123,\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "c1b8c058-691a-484c-b60e-2ab808c6679b",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "9a45f698-e2fe-4d50-99a3-799c93616307",
+            "name": "updateImpresora3d",
+            "url": "http://localhost:3000/impresora3d/idExistente",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2023-11-17T10:51:20.746Z",
+            "modified": "2023-11-17T10:52:00.957Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "*/*"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"mega x\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "4bc91f96-8f79-4fec-8ce9-bb781ef3eb0f",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dModeloNoValida",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 71250,
+            "created": "2023-11-17T11:18:13.142Z",
+            "modified": "2023-11-17T11:18:36.464Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"123\",\n  \"modelo\": 121121,\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "cb172450-540b-4217-8309-c335b610086a",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dMedidaNoValida",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 73125,
+            "created": "2023-11-17T11:18:39.270Z",
+            "modified": "2023-11-17T11:19:36.025Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"123\",\n  \"modelo\": \"121121\",\n  \"medida\": \"30cmx30cm\",\n  \"precio\": \"190\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "f6c41791-50b5-4d23-9b4a-90633e2c940a",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dPrecioNoValido",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 74062.5,
+            "created": "2023-11-17T11:19:13.606Z",
+            "modified": "2023-11-17T11:19:13.606Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"123\",\n  \"modelo\": \"121121\",\n  \"medida\": 3030,\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "8a15c672-7504-4cf8-a3d9-ad73d6640587",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dSinMarca",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 74531.3,
+            "created": "2023-11-17T10:50:39.586Z",
+            "modified": "2023-11-17T11:09:50.563Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "0a8547f4-7340-4277-8623-689adfbfb303",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dSinModelo",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 75000,
+            "created": "2023-11-17T11:09:05.584Z",
+            "modified": "2023-11-17T11:09:41.908Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "aecc28bd-b75c-4204-bd38-89444a024571",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dSinMedida",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 82500,
+            "created": "2023-11-17T11:10:00.315Z",
+            "modified": "2023-11-17T11:10:25.884Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"precio\": 190\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "5cff2fc6-7917-4b58-831e-07b5e7d8a7e3",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "addImpresora3dSinPrecio",
+            "url": "http://localhost:3000/impresora3d",
+            "method": "POST",
+            "sortNum": 86250,
+            "created": "2023-11-17T11:10:29.780Z",
+            "modified": "2023-11-17T11:10:54.392Z",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Accept",
+                    "value": "*/*",
+                    "isDisabled": true
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\"\n  \n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "eee5700d-061d-4473-a0cb-f91eb3dd91ea",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "deleteImpresora3dNoExistente",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "DELETE",
+            "sortNum": 90000,
+            "created": "2023-11-17T11:01:49.134Z",
+            "modified": "2023-11-17T11:02:11.090Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "d6794db5-f1c2-4732-8db6-a03d34ef2c8f",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresoraIdCorrectoBodyIncorrecto",
+            "url": "http://localhost:3000/impresora3d/idExistente",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2023-11-17T11:02:38.295Z",
+            "modified": "2023-11-17T11:03:18.332Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "fc26b43b-df28-4ed5-bf9a-161180dd8326",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresora3dIdIncorrectoBodyCorrecto",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "PUT",
+            "sortNum": 110000,
+            "created": "2023-11-17T11:04:21.689Z",
+            "modified": "2023-11-17T11:05:12.080Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 120\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "35205622-4ca2-4f44-8aab-3927e6393779",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresora3SinPrecio",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "PUT",
+            "sortNum": 112500,
+            "created": "2023-11-17T11:14:55.409Z",
+            "modified": "2023-11-17T11:15:10.053Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "6e257350-3179-4822-9c8c-3736959f075b",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresora3SinMedida",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "PUT",
+            "sortNum": 115000,
+            "created": "2023-11-17T11:14:05.000Z",
+            "modified": "2023-11-17T11:14:50.605Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"modelo\": \"megax\",\n  \"precio\": 120\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "402d58cd-c0d9-46af-aca1-f05a826db11a",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresora3SinMarca",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "PUT",
+            "sortNum": 120000,
+            "created": "2023-11-17T11:13:17.535Z",
+            "modified": "2023-11-17T11:13:37.232Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"modelo\": \"megax\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 120\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "aef8b137-7e27-4c29-9029-1a155e91607d",
+            "colId": "ac96d400-55cf-4531-b838-61a7be74fe52",
+            "containerId": "ab5ee846-f615-41e5-99a2-02199f385205",
+            "name": "updateImpresora3SinModelo",
+            "url": "http://localhost:3000/impresora3d/idInexistente",
+            "method": "PUT",
+            "sortNum": 130000,
+            "created": "2023-11-17T11:13:39.528Z",
+            "modified": "2023-11-17T11:13:59.738Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":\"anycubic\",\n  \"medida\": \"30x30cm\",\n  \"precio\": 120\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        }
+    ]
+}
