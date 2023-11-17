@@ -1,0 +1,682 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "filamento2.0",
+    "dateExported": "2023-11-17T15:23:12.352Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "b1b9d257-01df-417a-adae-8defaea48846",
+            "name": "ok",
+            "containerId": "",
+            "created": "2023-11-17T15:09:42.328Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "9cff00fb-f937-43dd-97bc-199deb9e5b39",
+            "name": "ko",
+            "containerId": "",
+            "created": "2023-11-17T15:10:46.317Z",
+            "sortNum": 15000
+        },
+        {
+            "_id": "5d3ef871-033c-4a2b-885b-521b6968ec32",
+            "name": "get",
+            "containerId": "9cff00fb-f937-43dd-97bc-199deb9e5b39",
+            "created": "2023-11-17T15:10:46.323Z",
+            "sortNum": 120000
+        },
+        {
+            "_id": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "post",
+            "containerId": "9cff00fb-f937-43dd-97bc-199deb9e5b39",
+            "created": "2023-11-17T15:10:46.329Z",
+            "sortNum": 130000
+        },
+        {
+            "_id": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "put",
+            "containerId": "9cff00fb-f937-43dd-97bc-199deb9e5b39",
+            "created": "2023-11-17T15:10:46.336Z",
+            "sortNum": 140000
+        },
+        {
+            "_id": "04479d1c-fac2-458c-bd28-f10dcd53c205",
+            "name": "delete",
+            "containerId": "9cff00fb-f937-43dd-97bc-199deb9e5b39",
+            "created": "2023-11-17T15:10:46.341Z",
+            "sortNum": 150000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "fea9e4fa-529c-4794-aa8e-b582036abdb7",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "b1b9d257-01df-417a-adae-8defaea48846",
+            "name": "updateFilamento",
+            "url": "",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-11-17T15:08:40.976Z",
+            "modified": "2023-11-17T15:09:48.035Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"anycubic\",\n  \"material\": \"abs\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "200"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "32a43e39-1684-46ba-9d72-3f44193d6518",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "5d3ef871-033c-4a2b-885b-521b6968ec32",
+            "name": "getFilamentoInexistente",
+            "url": "http://localhost:3000/filamento/idInexistente",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-11-17T15:10:46.327Z",
+            "modified": "2023-11-17T15:11:21.631Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "9befbe16-4b38-467d-b11a-ac22c5f15c6a",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoSinMarca",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:12:04.491Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "09594a5c-602f-4f50-a6d2-28df30116373",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoIdInvalido",
+            "url": "http://localhost:3000/filamento/idInvalido",
+            "method": "PUT",
+            "sortNum": 10000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:17:17.736Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "3350b01b-8f6a-4646-b6c2-cbc7e0292119",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "04479d1c-fac2-458c-bd28-f10dcd53c205",
+            "name": "deleteFilamentoIdInvalido",
+            "url": "http://localhost:3000/filamento/idInvalido",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2023-11-17T15:10:46.345Z",
+            "modified": "2023-11-17T15:21:59.906Z",
+            "headers": [],
+            "params": [],
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "404"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "0b5c570a-1c11-478c-9b3a-43119cfc4e3c",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoSinMaterial",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:12:40.394Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":\"winkle\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "52f0eb9d-b5e0-44ed-ad33-ef17ff0346c5",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoSinMarca",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 20000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:17:37.368Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "67bed283-a51f-4b1c-94c1-d59e15e5c970",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoSinPeso",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:13:14.044Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":\"winkle\",\n  \"material\": \"pla\",\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "96b5a109-dd5d-42ab-a178-e66633286900",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoSinMaterial",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:19:00.915Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "6c8e6d84-d636-4014-96fe-34d314e08542",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoSinPrecio",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:13:39.850Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":\"winkle\",\n  \"material\": \"pla\",\n  \"peso\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "8fd53ff5-3a64-4741-a323-9ddffd0d9a6b",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoSinPeso",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:18:55.183Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": \"pla\",\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "f2d279c1-502e-44c8-9d83-42927e49af38",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoMarcaInvalida",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:14:13.857Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":313213,\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "079786a0-bdb1-45f1-894c-76c607fe09a4",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoSinPrecio",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:19:24.149Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": \"pla\",\n  \"peso\": 1\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "e861cf1e-e759-4d6d-adc8-f2f2403d4ce0",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoMaterialInvalido",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:16:11.054Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\":\"313213\",\n  \"material\": 1231,\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "c63a0d5f-c00a-423a-93fd-668389b616f2",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoMarcaInvalida",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:19:52.019Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": 12313,\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "88df22b5-b6c2-49cd-ae29-30a8d7e5a6cb",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoPesoInvalido",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:16:06.833Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": " {\n  \"marca\":\"313213\",\n  \"material\": \"1231\",\n  \"peso\": \"adsa\",\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "4fc44792-f6f7-42ee-b7f4-46283a996893",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoMaterialInvalido",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:20:32.195Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": 1231,\n  \"peso\": 1,\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "37382649-8d41-4394-abd3-dd831c6ce279",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "f323d146-38cb-4456-a4c2-ae1ab4b12500",
+            "name": "addFilamentoPrecioInvalido",
+            "url": "http://localhost:3000/filamento/",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-11-17T15:10:46.333Z",
+            "modified": "2023-11-17T15:16:41.384Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": " {\n  \"marca\":\"313213\",\n  \"material\": \"1231\",\n  \"peso\": 1,\n  \"precio\": \"20\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "d7893791-baf7-4a1e-b8eb-4a64b73b16a1",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoPesoInvalido",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 80000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:21:02.507Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": \"pla\",\n  \"peso\": \"121as\",\n  \"precio\": 20\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        },
+        {
+            "_id": "896cb58f-e717-4f0b-b1b2-6b82b353d0c5",
+            "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
+            "containerId": "7905e2f5-7067-454a-a436-f35328c5462a",
+            "name": "updateFilamentoPrecioInvalido",
+            "url": "http://localhost:3000/filamento/idValido",
+            "method": "PUT",
+            "sortNum": 90000,
+            "created": "2023-11-17T15:10:46.338Z",
+            "modified": "2023-11-17T15:21:23.004Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"marca\": \"winkle\",\n  \"material\": \"pla\",\n  \"peso\": 1,\n  \"precio\": \"20\"\n}",
+                "form": []
+            },
+            "tests": [
+                {
+                    "type": "res-code",
+                    "custom": "",
+                    "action": "equal",
+                    "value": "400"
+                },
+                {
+                    "type": "res-body",
+                    "custom": "",
+                    "action": "isjson",
+                    "value": "true"
+                }
+            ]
+        }
+    ]
+}
