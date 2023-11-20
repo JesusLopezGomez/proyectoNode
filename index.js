@@ -6,7 +6,7 @@ require("dotenv").config();
 const app = express();
 const useRouteImpresora3d = require("./routes/impresora3d");
 const useRouteRepuesto = require("./routes/repuesto");
-/*const useRouteFilamento = require();*/
+const useRouteFilamento = require("./routes/filamento");
 
 mongoose.set("strictQuery",false); 
 
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(morgan("tiny"));
 app.use("/impresora3d",useRouteImpresora3d);
 app.use("/repuesto",useRouteRepuesto);
-
+app.use("/filamento",useRouteFilamento);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {

@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "filamento2.0",
-    "dateExported": "2023-11-17T15:23:12.352Z",
+    "dateExported": "2023-11-20T12:31:21.838Z",
     "version": "1.1",
     "folders": [
         {
@@ -53,11 +53,11 @@
             "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
             "containerId": "b1b9d257-01df-417a-adae-8defaea48846",
             "name": "updateFilamento",
-            "url": "",
+            "url": "http://localhost:3000/filamento/655b50a4bd678d738a63eca9",
             "method": "PUT",
             "sortNum": 10000,
             "created": "2023-11-17T15:08:40.976Z",
-            "modified": "2023-11-17T15:09:48.035Z",
+            "modified": "2023-11-20T12:28:00.219Z",
             "headers": [],
             "params": [],
             "body": {
@@ -85,11 +85,11 @@
             "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
             "containerId": "5d3ef871-033c-4a2b-885b-521b6968ec32",
             "name": "getFilamentoInexistente",
-            "url": "http://localhost:3000/filamento/idInexistente",
+            "url": "http://localhost:3000/filamento/655b50a4bd678d738a63ecad",
             "method": "GET",
             "sortNum": 10000,
             "created": "2023-11-17T15:10:46.327Z",
-            "modified": "2023-11-17T15:11:21.631Z",
+            "modified": "2023-11-20T12:27:52.872Z",
             "headers": [],
             "params": [],
             "tests": [
@@ -97,7 +97,7 @@
                     "type": "res-code",
                     "custom": "",
                     "action": "equal",
-                    "value": "404"
+                    "value": "400"
                 },
                 {
                     "type": "res-body",
@@ -176,11 +176,11 @@
             "colId": "264a6f4d-1db8-4ccf-91c2-0e96a511a074",
             "containerId": "04479d1c-fac2-458c-bd28-f10dcd53c205",
             "name": "deleteFilamentoIdInvalido",
-            "url": "http://localhost:3000/filamento/idInvalido",
+            "url": "http://localhost:3000/filamento/655b50a4bd678d738a63ecaf",
             "method": "DELETE",
             "sortNum": 10000,
             "created": "2023-11-17T15:10:46.345Z",
-            "modified": "2023-11-17T15:21:59.906Z",
+            "modified": "2023-11-20T12:29:00.938Z",
             "headers": [],
             "params": [],
             "tests": [
@@ -188,7 +188,7 @@
                     "type": "res-code",
                     "custom": "",
                     "action": "equal",
-                    "value": "404"
+                    "value": "400"
                 },
                 {
                     "type": "res-body",
@@ -591,12 +591,12 @@
             "method": "POST",
             "sortNum": 80000,
             "created": "2023-11-17T15:10:46.333Z",
-            "modified": "2023-11-17T15:16:41.384Z",
+            "modified": "2023-11-20T12:28:16.936Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": " {\n  \"marca\":\"313213\",\n  \"material\": \"1231\",\n  \"peso\": 1,\n  \"precio\": \"20\"\n}",
+                "raw": " {\n  \"marca\":\"313213\",\n  \"material\": \"1231\",\n  \"peso\": 1,\n  \"precio\": \"20da\"\n}",
                 "form": []
             },
             "tests": [
