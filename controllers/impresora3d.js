@@ -24,10 +24,10 @@ const getImpresora3dById = async(req,res) => {
 }
 
 const addImpresora3d = async(req,res) => {
-    const {marca,modelo,medida,precio} = req.body;
+    const {marca,modelo,medida,precio,email} = req.body;
 
-    if(marca && modelo && medida && precio){
-        const newImpresora3d = new Impresora3d({marca,modelo,medida,precio});
+    if(marca && modelo && medida && precio && email){
+        const newImpresora3d = new Impresora3d({marca,modelo,medida,precio,email});
 
         try{
             await newImpresora3d.save();
