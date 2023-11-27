@@ -16,7 +16,8 @@ const Impresora3dSchema = new Schema({
     },
     email:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
     precio:{
         type:Number,

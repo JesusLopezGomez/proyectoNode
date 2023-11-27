@@ -17,7 +17,6 @@ const getImpresora3dById = async(req,res) => {
         }else{
             res.status(400).json({message:"Dato erroneos"});
         }
-
     }catch(err){
         res.status(500).json({message:err});
     }

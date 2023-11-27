@@ -42,8 +42,9 @@ deleteImpresora3d)
     check("marca","La marca es de tipo Strign y no puede estar vacía").isString(),
     check("modelo","El modelo es de tipo Strign y no puede estar vacío").isString(),
     check("medida","La medida es de tipo String y no puede estar vacía").isString(),
-    check("precio","El precio es de tipo Number y no puede estar vacío").isNumeric()
-    ,validateFields
+    check("precio","El precio es de tipo Number y no puede estar vacío").isNumeric(),
+    check("email").custom(existEmail),
+    validateFields
     ],
     updateImpresora3d);
 
