@@ -17,17 +17,16 @@ const getImpresora3dById = async(req,res) => {
         }else{
             res.status(400).json({message:"Dato erroneos"});
         }
-
     }catch(err){
         res.status(500).json({message:err});
     }
 }
 
 const addImpresora3d = async(req,res) => {
-    const {marca,modelo,medida,email,precio} = req.body;
+    const {marca,modelo,medida,precio,email} = req.body;
 
-    if(marca && modelo && medida && precio){
-        const newImpresora3d = new Impresora3d({marca,modelo,medida,email,precio});
+    if(marca && modelo && medida && precio && email){
+        const newImpresora3d = new Impresora3d({marca,modelo,medida,precio,email});
 
         try{
             await newImpresora3d.save();

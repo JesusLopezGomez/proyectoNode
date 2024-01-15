@@ -22,8 +22,18 @@ router
 
 router
 .route("/:id")
-.get(getFilamentoById)
-.delete(deleteFilamento)
+.get([
+    check("id","No es un id válido").isMongoId(),
+    validateFields
+],
+getFilamentoById)
+
+.delete([
+    check("id","No es un id válido").isMongoId(),
+    validateFields
+],
+deleteFilamento)
+
 .put([
     check("id","No es un id válido").isMongoId(),
     check("marca","La marca es de tipo Strign y no puede estar vacía").isString(),

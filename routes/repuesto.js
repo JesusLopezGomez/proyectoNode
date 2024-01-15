@@ -21,8 +21,18 @@ router
 
 router
 .route("/:id")
-.get(getRepuestoById)
-.delete(deleteRepuesto)
+.get([
+    check("id","No es un id válido").isMongoId(),
+    validateFields
+]
+,getRepuestoById)
+
+.delete([
+    check("id","No es un id válido").isMongoId(),
+    validateFields
+],
+deleteRepuesto)
+
 .put([
     check("id","No es un id válido").isMongoId(),
     check("marca","La marca es de tipo Strign y no puede estar vacía").isString(),
