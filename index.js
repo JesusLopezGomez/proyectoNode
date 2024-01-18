@@ -2,8 +2,10 @@ const express = require("express");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 require("dotenv").config();
+const cors = require("cors");
 
 const app = express();
+app.use(cors());
 const useRouteImpresora3d = require("./routes/impresora3d");
 const useRouteRepuesto = require("./routes/repuesto");
 const useRouteFilamento = require("./routes/filamento");
