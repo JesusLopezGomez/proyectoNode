@@ -9,6 +9,7 @@ app.use(cors());
 const useRouteImpresora3d = require("./routes/impresora3d");
 const useRouteRepuesto = require("./routes/repuesto");
 const useRouteFilamento = require("./routes/filamento");
+const useRouteUsuario = require("./routes/usuario");
 
 mongoose.set("strictQuery",false); 
 
@@ -24,6 +25,7 @@ app.use(morgan("tiny"));
 app.use("/impresora3d",useRouteImpresora3d);
 app.use("/repuesto",useRouteRepuesto);
 app.use("/filamento",useRouteFilamento);
+app.use("/usuario",useRouteUsuario);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
