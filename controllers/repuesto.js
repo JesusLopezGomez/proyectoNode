@@ -25,7 +25,6 @@ const getRepuestoById = async(req,res) => {
 
 const addRepuesto = async(req,res) => {
     const {marca,tipo,modeloImpresora,precio} = req.body;
-
     if(marca && tipo && modeloImpresora && precio){
         const newRepuesto = new Repuesto({marca,tipo,modeloImpresora,precio});
 
@@ -33,6 +32,7 @@ const addRepuesto = async(req,res) => {
             await newRepuesto.save();
             res.status(201).json(newRepuesto);
         }catch(err){
+            console.log(err);
             res.status(500).json({message:err});
         }
     }else{
