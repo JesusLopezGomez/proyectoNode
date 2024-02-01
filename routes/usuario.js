@@ -17,6 +17,7 @@ router
     check("name","El nombre es de tipo String y no puede estar vacío").isString(),
     check("role","El role es de tipo String y no puede estar vacío").isString(),
     check("password","La contraseña es de tipo String y no puede estar vacía").isString(),
+    check("password","La contraseña debe tener al menos 8 caracteres, una letra minúscula, una letra mayúscula, un número y un caracter especial.").matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"),
     check("email").custom(existEmailUsuario),
     check("username").custom(existUsername)
     ,validateFields
@@ -44,6 +45,8 @@ deleteUsuario)
     check("name","El nombre es de tipo String y no puede estar vacío").isString(),
     check("role","El role es de tipo String y no puede estar vacío").isString(),
     check("password","La contraseña es de tipo String y no puede estar vacía").isString(),
+    check("password","La contraseña debe tener al menos 8 caracteres, una letra minúscula, una letra mayúscula, un número y un caracter especial.").matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,16}$"),
+    check("active","Active es de tipo boolean obligatorio").isBoolean(),
     check("email").custom(existEmailUsuario),
     check("username").custom(existUsername)
     ,validateFields

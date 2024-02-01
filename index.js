@@ -10,6 +10,7 @@ const useRouteImpresora3d = require("./routes/impresora3d");
 const useRouteRepuesto = require("./routes/repuesto");
 const useRouteFilamento = require("./routes/filamento");
 const useRouteUsuario = require("./routes/usuario");
+const useRouteLogin = require("./routes/login");
 
 mongoose.set("strictQuery",false); 
 
@@ -26,6 +27,8 @@ app.use("/impresora3d",useRouteImpresora3d);
 app.use("/repuesto",useRouteRepuesto);
 app.use("/filamento",useRouteFilamento);
 app.use("/usuario",useRouteUsuario);
+app.use("/auth/login",useRouteLogin);
+
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
