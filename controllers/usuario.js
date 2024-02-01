@@ -92,13 +92,19 @@ const login = async(req,res) => {
     if(email && password){
         try{
             const usuarioBuscar = await Usuario.findOne({email});
-            const validPassword = bcryptjs.compareSync(password, usuarioBuscar.password);
+            let validPassword = null;
+            if(usuarioBuscar){
+                console.log(usuarioBuscar)
+                validPassword = bcryptjs.compareSync(password, usuarioBuscar.password);
+                console.log(password)
+            }
             if(validPassword){
                 res.status(200).json(usuarioBuscar);
             }else{
                 res.status(400).json({message:"Email or password invalid..."});
             }
         }catch(err){
+            console.log(err);
             res.status(500).json({message:err});
         }
     }else{
