@@ -4,7 +4,7 @@ const router = express.Router();
 const {check} = require("express-validator");
 
 const { validateFields } = require("../middlewares/validateFields");
-const {login} = require("../controllers/usuario");
+const {login} = require("../controllers/auth");
 
 router.post([
     check("username","El nombre de usuario es de tipo Strign y no puede estar vacío").isString(),

@@ -7,6 +7,8 @@ const {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario} = requi
 
 const { validateFields } = require("../middlewares/validateFields");
 const { existEmailUsuario, existUsername, existId } = require("../helpers/db-validators");
+const { validateJWT } = require("../middlewares/validateJwt");
+const { hasRole } = require("../middlewares/validateRol");
 
 router
 .route("/")
@@ -33,6 +35,8 @@ router
 ,getUsuarioById)
 
 .delete([
+    validateJWT,
+    hasRole,
     check("id","No es un id válido").isMongoId(),
     check("id").custom(existId),
     validateFields

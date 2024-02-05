@@ -1,7 +1,6 @@
 const Usuario = require("../models/usuario");
 const bcryptjs = require("bcryptjs");
 
-
 const getUsuario = async(req,res) => {
     try{
         const usuarios = await Usuario.find();
@@ -84,27 +83,5 @@ const updateUsuario = async(req,res) => {
     }
 }
 
-const login = async(req,res) => {
-    let {email,password} = req.body;
-    if(email && password){
-        try{
-            const usuarioBuscar = await Usuario.findOne({email});
-            let validPassword = null;
-            if(usuarioBuscar){
-                validPassword = bcryptjs.compareSync(password, usuarioBuscar.password);
-            }
-            if(validPassword){
-                res.status(200).json(usuarioBuscar);
-            }else{
-                res.status(400).json({message:"Email or password invalid..."});
-            }
-        }catch(err){
-            console.log(err);
-            res.status(500).json({message:err});
-        }
-    }else{
-        res.status(400).json({message:"Dato erroneos"});
-    }
-}
 
-module.exports = {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario,login};
+module.exports = {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario};
