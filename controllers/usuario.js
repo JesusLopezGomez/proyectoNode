@@ -26,10 +26,10 @@ const getUsuarioById = async(req,res) => {
 }
 
 const addUsuario = async(req,res) => {
-    const {email,username,name,role,password} = req.body;
-    if(email && username && name && role && password){
+    const {email,username,name,password} = req.body;
+    if(email && username && name && password){
         const salt = bcryptjs.genSaltSync();
-        const encryptedPassword = bcryptjs.hashSync( password, salt);
+        const encryptedPassword = bcryptjs.hashSync(password, salt);
         
         const newUsuario = new Usuario({email,username,name,role:"ROLE_user",password:encryptedPassword,active:true});
 
@@ -49,12 +49,9 @@ const deleteUsuario = async(req,res) => {
     let id = req.params.id;
     if(id){
         try{
-            const usuarioBuscar = await Usuario.findById(id);
-            usuarioBuscar.active = false;
-            if(usuarioBuscar){
-                await Usuario.findByIdAndUpdate(id,usuarioBuscar);
-                const usuarioActualizado = await Usuario.findById(id);
-                res.status(200).json(usuarioActualizado);
+            const usuarioActualizado = await Usuario.findByIdAndUpdate(id,{active:false});
+            if(usuarioActualizado){
+                res.status(200).json(await Usuario.findById(id));
             }else{
                 res.status(400).json({message:"Dato erroneos"});
             }
@@ -94,9 +91,7 @@ const login = async(req,res) => {
             const usuarioBuscar = await Usuario.findOne({email});
             let validPassword = null;
             if(usuarioBuscar){
-                console.log(usuarioBuscar)
                 validPassword = bcryptjs.compareSync(password, usuarioBuscar.password);
-                console.log(password)
             }
             if(validPassword){
                 res.status(200).json(usuarioBuscar);

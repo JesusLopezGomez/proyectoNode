@@ -23,4 +23,11 @@ const existUsername = async (username,{req})=>{
     }
 }
 
-module.exports = {existEmail,existEmailUsuario,existUsername};
+const existId = async (id,{req})=>{
+    const usernameDB = await Usuario.findById(id);
+    if(!usernameDB){
+        throw new Error(`This id ${id} dont exist`);
+    }
+}
+
+module.exports = {existEmail,existEmailUsuario,existUsername,existId};
