@@ -11,6 +11,7 @@ const useRouteRepuesto = require("./routes/repuesto");
 const useRouteFilamento = require("./routes/filamento");
 const useRouteUsuario = require("./routes/usuario");
 const useRouteLogin = require("./routes/login");
+const useRouteRenew = require("./routes/renew");
 
 mongoose.set("strictQuery",false); 
 
@@ -28,6 +29,8 @@ app.use("/repuesto",useRouteRepuesto);
 app.use("/filamento",useRouteFilamento);
 app.use("/usuario",useRouteUsuario);
 app.use("/auth/login",useRouteLogin);
+app.use("/renew",useRouteRenew);
+
 
 
 const PORT = process.env.PORT;
