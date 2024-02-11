@@ -3,7 +3,6 @@ const jwt  = require("jsonwebtoken");
 const renew = async(req,res) => {
     const user = req.user;
     try{
-        console.log(user);
         if(user){
             const payload = {uid: user.id}
             const token = jwt.sign( payload,process.env.SECRET, {expiresIn: '4h'});
