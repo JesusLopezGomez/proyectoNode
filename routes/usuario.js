@@ -12,7 +12,7 @@ const { hasRole } = require("../middlewares/validateRol");
 
 router
 .route("/")
-.get(getUsuario)
+.get(validateJWT,getUsuario)
 .post([
     check("email","El email es de tipo Strign y no puede estar vacía").isString(),
     check("username","El nombre de usuario es de tipo Strign y no puede estar vacío").isString(),
