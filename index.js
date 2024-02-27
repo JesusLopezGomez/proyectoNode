@@ -31,8 +31,6 @@ app.use("/usuario",useRouteUsuario);
 app.use("/auth/login",useRouteLogin);
 app.use("/renew",useRouteRenew);
 
-
-
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`El servidor está escuchando por el puerto ${PORT}`);

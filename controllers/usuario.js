@@ -24,6 +24,34 @@ const getUsuarioById = async(req,res) => {
     }
 }
 
+const getUsuarioByEmail = async(req,res) => {
+    try{
+        const usuario = await Usuario.findOne({email:req.query.email});
+        if(usuario){
+            res.status(200).json(usuario);            
+        }else{
+            res.status(200).json({});
+        }
+
+    }catch(err){
+        res.status(500).json({message:err});
+    }
+}
+
+const getUsuarioByUsername = async(req,res) => {
+    try{
+        const usuario = await Usuario.findOne({username:req.query.username});
+        if(usuario){
+            res.status(200).json(usuario);            
+        }else{
+            res.status(200).json({});
+        }
+
+    }catch(err){
+        res.status(500).json({message:err});
+    }
+}
+
 const addUsuario = async(req,res) => {
     const {email,username,name,password} = req.body;
     if(email && username && name && password){
@@ -87,4 +115,4 @@ const updateUsuario = async(req,res) => {
 }
 
 
-module.exports = {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario};
+module.exports = {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario,getUsuarioByEmail,getUsuarioByUsername};

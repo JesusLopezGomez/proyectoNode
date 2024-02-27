@@ -3,7 +3,7 @@ const router = express.Router();
 
 const {check} = require("express-validator");
 
-const {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario} = require("../controllers/usuario");
+const {getUsuario,getUsuarioById,addUsuario,deleteUsuario,updateUsuario,getUsuarioByEmail,getUsuarioByUsername} = require("../controllers/usuario");
 
 const { validateFields } = require("../middlewares/validateFields");
 const { existEmailUsuario, existUsername, existId } = require("../helpers/db-validators");
@@ -11,8 +11,16 @@ const { validateJWT } = require("../middlewares/validateJwt");
 const { hasRole } = require("../middlewares/validateRol");
 
 router
+.route("/searchEmail")
+.get(getUsuarioByEmail)
+
+router
+.route("/searchUsername")
+.get(getUsuarioByUsername)
+
+router
 .route("/")
-.get(validateJWT,getUsuario)
+.get(getUsuario)
 .post([
     check("email","El email es de tipo Strign y no puede estar vacía").isString(),
     check("username","El nombre de usuario es de tipo Strign y no puede estar vacío").isString(),
